@@ -1,19 +1,34 @@
 #include <iostream>
-// лаболаторна робота n1 завдання 2
-// ТЕМА: АРИФМЕТИЧНІ ВИРАЗИ, ФОРМАТУВАННЯ ВИВОДУ
-int main() {
-    double d1 = 1.5 * 0.25; // 0.375 
-    double d2 = 2.3 * 0.25; // 0.575 
-    double d3 = 5.9 * 0.25; // 1.475 
-    double d4 = 4.0 * 0.25; // 1.0 
-    double total = d1 + d2 + d3 + d4; // 3.425 
-    double rounded = int(total * 10.0 + 0.5) / 10.0;
-    // результати 
-    std::cout << "1.5 cm " << d1 << " km\n";
-    std::cout << "2.3 cm " << d2 << " km\n";
-    std::cout << "5.9 cm " << d3 << " km\n";
-    std::cout << "4.0 cm " << d4 << " km\n";
-    std::cout << "Total: " << rounded << " km\n";
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    int grade1, grade2, grade3;
+    double weight1, weight2, weight3;
+
+    // input (interactive)
+    cout << "enter grade 1 and its weight: ";
+    cin >> grade1 >> weight1;
+    cout << "enter grade 2 and its weight: ";
+    cin >> grade2 >> weight2;
+    cout << "enter grade 3 and its weight: ";
+    cin >> grade3 >> weight3;
+
+    // calculation
+    double weightedAvg = grade1 * weight1 + grade2 * weight2 + grade3 * weight3;
+
+    cout << fixed << setprecision(2);
+
+    // print input data
+    cout << "\n--- Input Data ---\n";
+    cout << "Grade 1: " << grade1 << ",  weight: " << weight1 << endl;
+    cout << "Grade 2: " << grade2 << ",  weight: " << weight2 << endl;
+    cout << "Grade 3: " << grade3 << ",  weight: " << weight3 << endl;
+
+    // result
+    cout << "\nresult:";
+    cout << "avg grade: " << weightedAvg << endl;
 
     return 0;
 }
