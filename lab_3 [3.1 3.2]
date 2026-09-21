@@ -1,0 +1,74 @@
+#include <iostream>
+#include <cmath> // lab 3.1 , 3.2 
+using namespace std;
+
+// the length of the circle 1.3
+void app1() {
+    cout << "\n EX 1.3" << endl;
+    double d;
+    cout << "enter diameter (d): ";
+    cin >> d;
+
+
+
+    const double PI = 3.141592653589793;
+
+    double L = PI * d;
+    double S = (PI * pow(d, 2)) / 4.0;
+
+    cout << "Length of the circle (L): " << L << endl;
+    cout << "Area of the circle (S): " << S << endl;
+}
+
+// Task 2.3: Calculation of the angle bisector Wa and the radius of the inscribed circle r
+void app2() {
+    cout << "\n EX 2.3 " << endl;
+
+    const int i = 3;
+
+    // A(0,0), B(3, 2), C(-3, 4)
+    double Ax = 0, Ay = 0;
+    double Bx = i, By = i - 1;
+    double Cx = -i, Cy = i + 1;
+    double a = sqrt(pow(Cx - Bx, 2) + pow(Cy - By, 2)); // BC
+    double b = sqrt(pow(Cx - Ax, 2) + pow(Cy - Ay, 2)); // AC
+    double c = sqrt(pow(Bx - Ax, 2) + pow(By - Ay, 2)); // AB
+
+    double p = (a + b + c) / 2.0;
+    double S = sqrt(p * (p - a) * (p - b) * (p - c));
+    double Wa = (2.0 / (b + c)) * sqrt(b * c * p * (p - a));
+    double r = S / p;
+
+    cout << "Coordinates of vertices: A(0,0), B(" << Bx << "," << By << "), C(" << Cx << "," << Cy << ")" << endl;
+    cout << "Side lengths: a = " << a << ", b = " << b << ", c = " << c << endl;
+    cout << "Area of the triangle (S): " << S << endl;
+    cout << "Angle bisector Wa: " << Wa << endl;
+    cout << "Radius of the inscribed circle (r): " << r << endl;
+}
+
+int main() {
+    int switch_app;
+
+    while (true) {
+        cout << "\n>>> choose an app 1 or 2  0 = exit <<<" << endl;
+        cin >> switch_app;
+
+        if (switch_app == 0) {
+            cout << "end..." << endl;
+            break;
+        }
+
+        switch (switch_app) {
+        case 1:
+            app1();
+            break;
+        case 2:
+            app2();
+            break;
+        default:
+            cout << "error" << endl;
+        }
+    }
+
+    return 0;
+}
