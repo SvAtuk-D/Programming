@@ -1,0 +1,41 @@
+#include <iostream>
+#include <iomanip> // lab work 2
+
+using namespace std;
+
+int main() {
+    double fuel1, fuel2, fuel3, fuel4; // fuel load
+    double odoStart, odoEnd; // start and finish
+
+    // insert (interactive)
+    cout << "1st load: ";
+    cin >> fuel1;
+    cout << "2-nd load: ";
+    cin >> fuel2;
+    cout << "3-rd load: ";
+    cin >> fuel3;
+    cout << "4-th load: ";
+    cin >> fuel4;
+    cout << "start km: ";
+    cin >> odoStart;
+    cout << "end km: ";
+    cin >> odoEnd;
+
+    double totalFuel = fuel1 + fuel2 + fuel3 + fuel4; // all fuel
+    double distance = odoEnd - odoStart; // full distance
+    double mileage = distance / totalFuel; // fuel consumption
+
+    cout << fixed << setprecision(2);
+    cout << "enter info\n";
+    cout << "fuel loads: " << fuel1 << ", " << fuel2 << ", " << fuel3 << ", " << fuel4 << endl;
+    cout << "start km: " << odoStart << endl;
+    cout << "end km: " << odoEnd << endl;
+
+    // result
+    cout << "result\n";
+    cout << "result fuel loosing: " << totalFuel << endl;
+    cout << "result distance: " << distance << endl;
+    cout << "fuel consumption: " << mileage << endl;
+
+    return 0;
+}
