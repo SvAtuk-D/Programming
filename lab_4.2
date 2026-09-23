@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    const double x = 2.0, a = 1.0, b = 3.0;
+    double y;
+
+    if (x <= a) {
+        y = pow(pow(cos(x - a), 4.0), 1.0 / 5.0);
+    }
+    else if (x <= b) {
+        y = x * x * tan(b * x);
+    }
+    else {
+        y = fabs(sin((a + b) * x) / (x * x - b * b));
+    }
+
+    cout << fixed << setprecision(4);
+    cout << "x = " << x << endl;
+    cout << "a = " << a << endl;
+    cout << "b = " << b << endl;
+    cout << "y = " << y << endl;
+
+    return 0;
+}
