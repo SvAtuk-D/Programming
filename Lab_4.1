@@ -1,0 +1,35 @@
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    const double cx = 0.0, cy = 0.0, R = 5.0;
+    double x, y, d2, r2;
+    char again;
+
+    do {
+        cout << "enter  (x y): ";
+        cin >> x >> y;
+
+        d2 = (x - cx) * (x - cx) + (y - cy) * (y - cy);
+        r2 = R * R;
+
+        if (x == cx && y == cy) {
+            cout << " point are in centre of circle" << endl;
+            again = 'n';
+        }
+        else if (fabs(d2 - r2) < 1e-9) {
+            cout << "point are on circle" << endl;
+            again = 'y';
+        }
+        else if (d2 < r2) {
+            cout << "point are in circle" << endl;
+            again = 'n';
+        }
+        else {
+            cout << "Point aren't in circle" << endl;
+            again = 'n';
+        }
+    } while (again == 'y');
+}
