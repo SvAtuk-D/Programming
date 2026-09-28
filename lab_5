@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long id;
+    int g1, g2, g3, g4;
+    bool dataOK;
+
+    cout << "Enter student ID and four exam grades: ";
+    cin >> id >> g1 >> g2 >> g3 >> g4;
+    dataOK = (g1 >= 0) && (g2 >= 0) && (g3 >= 0) && (g4 >= 0);
+
+    if (!dataOK) {
+        cout << "Error: exam grade cannot be negative" << endl;
+        return 0;
+    }
+
+    double avg = (g1 + g2 + g3 + g4) / 4.0;
+
+    cout << "Student ID: " << id << endl;
+    cout << "Average grade: " << avg << endl;
+
+    if (avg >= 3) {
+        cout << "Exam passed" << endl;
+        
+        if (avg < 4) 
+            cout << "Passed satisfactorily" << endl;
+        else if (avg < 5) 
+            cout << "Passed well" << endl;
+        else if (avg == 5) 
+            cout << "Passed excellently" << endl;
+    } else {
+        cout << "Exam failed" << endl;
+    }
+
+    return 0;
+}
