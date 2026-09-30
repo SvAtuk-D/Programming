@@ -4,90 +4,30 @@
 
 using namespace std;
 
-struct Measure {
-    string name;
-    string u1;
-    double k1;
-    string u2;
-    double k2;
-};
-
 int main() {
-    Measure m[12] = {
-        {"ounce", "g", 28.353495, "carats", 142.0},
-        {"drachm", "g", 1.77185, "ounces", 0.06249},
-        {"carat", "g", 0.2, "grains", 2.9412},
-        {"grain", "g", 0.068, "drachms", 0.038378},
-        {"pipe", "pecks", 54.18, "l", 477.33},
-        {"gallon (UK)", "gallon (US)", 1.2, "l", 4.546},
-        {"gallon (US)", "sacks", 0.0347, "l", 3.785},
-        {"shot", "l", 0.0568, "pipes", 0.00012},
-        {"quarter", "l", 291.0, "shots", 5123.24},
-        {"strike", "l", 72.73, "shots", 1280.46},
-        {"chaldron", "l", 1.309, "pecks", 0.149},
-        {"sack", "l", 109.0, "strikes", 1.499}
-    };
-
-    int choice, rows;
     double start, step;
-    string dummy;
+    int rows;
     const string line = "---------------------------------------------------";
 
-    cout << "Table of measure\n";
-    for (int i = 0; i < 12; i++) {
-        cout << setw(2) << i + 1 << ". 1 " << m[i].name << " = "
-            << m[i].k1 << " " << m[i].u1 << " = " << m[i].k2 << " " << m[i].u2 << "\n";
-    }
-
-
-    do {
-        cout << "\nChoose a measure (1-12): ";
-        if (!(cin >> choice)) {
-            cin.clear();
-            cin >> dummy;
-            choice = 0;
-        }
-    } while (choice < 1 || choice > 12);
-    choice--;
-
     cout << "Start value: ";
-    while (!(cin >> start)) {
-        cin.clear();
-        cin >> dummy;
-        cout << "Error. Start value: ";
-    }
-
+    while (!(cin >> start)) { cin.clear(); cin.get(); cout << "Error. Start value: "; }
 
     cout << "Step: ";
-    while (!(cin >> step)) {
-        cin.clear();
-        cin >> dummy;
-        cout << "Error. Step: ";
-    }
-
+    while (!(cin >> step)) { cin.clear(); cin.get(); cout << "Error. Step: "; }
 
     do {
         cout << "Number of rows (10-15): ";
-        if (!(cin >> rows)) {
-            cin.clear();
-            cin >> dummy;
-            rows = 0;
-        }
+        if (!(cin >> rows)) { cin.clear(); cin.get(); rows = 0; }
     } while (rows < 10 || rows > 15);
 
-
     cout << "\n" << line << "\n";
-    cout << "| " << left << setw(15) << m[choice].name
-        << " | " << setw(15) << m[choice].u1
-        << " | " << setw(15) << m[choice].u2 << " |\n";
+    cout << "| " << left << setw(15) << "carat" << " | " << setw(15) << "g" << " | " << setw(15) << "grains" << " |\n";
     cout << line << "\n";
 
     cout << fixed << setprecision(4) << right;
     double x = start;
     for (int i = 0; i < rows; i++) {
-        cout << "| " << setw(15) << x
-            << " | " << setw(15) << x * m[choice].k1
-            << " | " << setw(15) << x * m[choice].k2 << " |\n";
+        cout << "| " << setw(15) << x << " | " << setw(15) << x * 0.2 << " | " << setw(15) << x * 2.9412 << " |\n";
         x += step;
     }
     cout << line << "\n";
