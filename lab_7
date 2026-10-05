@@ -1,0 +1,28 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    ifstream fin("C:\\Users\\Student\\Desktop\\lab_7_file_to read.txt.txt");
+
+    if (!fin.is_open()) {
+        cout << "ERROR" << endl;
+        return 1;
+    }
+
+    int count = 0;
+    char prev = 0, ch;
+    while (fin.get(ch))
+    {
+        if (prev == '!' && ch == '=')
+            count++;
+        prev = ch;
+    }
+
+    fin.close();
+
+    cout << " != : " << count << endl;
+    return 0;
+}
