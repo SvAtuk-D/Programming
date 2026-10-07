@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+void Calc(float a, char op, float b);
+int main()
+{
+    float a, b;
+    char op, again;
+
+    do
+    {
+        cout << "enter operation ";
+        cin >> a >> op >> b;
+        Calc(a, op, b);
+        cout << " again (y/n)? ";
+        cin >> again;
+    } while (again == 'y');
+
+    return 0;
+}
+
+void Calc(float a, char op, float b)
+{
+    if (op == '+')
+        cout << "result: " << a + b << endl;
+    else if (op == '-')
+        cout << "result: " << a - b << endl;
+    else if (op == '*')
+        cout << "result: " << a * b << endl;
+    else if (op == '/')
+    {
+        if (b != 0)
+            cout << "" << a / b << endl;
+        else
+            cout << "result: " << endl;
+    }
+    else
+        cout << "you cant /0" << endl;
+}
