@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+void PrintSymbol(char symbol, int count);
+int main()
+{
+    char symbol;
+    int count;
+
+    cout << "enter sumbol and repeats ";
+    cin >> symbol >> count;
+    PrintSymbol(symbol, count);
+
+    return 0;
+}
+void PrintSymbol(char symbol, int count)
+{
+    for (int i = 0; i < count; i++)
+        cout << symbol;
+    cout << endl;
+}
